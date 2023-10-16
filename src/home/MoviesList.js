@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import ErrorAlert from "../shared/ErrorAlert";
-import { listMovies } from "../utils/api";
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import ErrorAlert from '../shared/ErrorAlert';
+import { listMovies } from '../utils/api';
 
 function MoviesList() {
   const [movies, setMovies] = useState([]);
@@ -16,28 +16,28 @@ function MoviesList() {
   }, []);
 
   const list = movies.map((movie) => (
-    <article key={movie.movie_id} className="col-sm-12 col-md-6 col-lg-3 my-2">
+    <article key={movie.movie_id} className='col-sm-12 col-md-6 col-lg-3 my-2'>
       <img
         alt={`${movie.title} Poster`}
-        className="rounded"
+        className='rounded'
         src={movie.image_url}
-        style={{ width: "100%" }}
+        style={{ width: '100%' }}
       />
       <Link
         to={`/movies/${movie.movie_id}`}
-        className="stretched-link text-dark"
+        className='stretched-link text-dark'
       >
-        <h3 className="font-poppins-heading text-center mt-2">{movie.title}</h3>
+        <h3 className='font-poppins-heading text-center mt-2'>{movie.title}</h3>
       </Link>
     </article>
   ));
 
   return (
-    <main className="container">
+    <main className='container'>
       <ErrorAlert error={error} />
-      <h2 className="font-poppins">Now Showing</h2>
+      <h2 className='font-poppins'>Now Showing</h2>
       <hr />
-      <section className="row">{list}</section>
+      <section className='row'>{list}</section>
     </main>
   );
 }
